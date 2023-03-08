@@ -54,30 +54,24 @@ function App() {
 
 
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <input type="file" name="file" accept='.csv' onChange={handleFile} style={{ display: "block", margin: "10px auto" }}>
       </input>
 
       <br />
 
-      <p>
-        Bottles sold: {bottleCount}
-      </p>
-      <p>
-        Stickers sold: {stickerCount}
-      </p>
-      <p>
-        Crewnecks sold: {crewneckCount}
-      </p>
-      <p>
-        Hoodies sold: {hoodieCount}
-      </p>
-      <p>
-        Tumblers sold: {tumblerCount}
-      </p>
-      <p>
-        T-Shirts sold: {tshirtCount}
-      </p>
+      <table style={{ borderCollapse: "collapse", border: "1px solid black", margin: "5px auto" }}>
+        <tbody>
+          <tr>
+            <td style={{ border: "1px solid black", padding: "5px", textAlign: "center" }}>Bottles sold: {bottleCount}</td>
+            <td style={{ border: "1px solid black", padding: "5px", textAlign: "center" }}>Stickers sold: {stickerCount}</td>
+            <td style={{ border: "1px solid black", padding: "5px", textAlign: "center" }}>Crewnecks sold: {crewneckCount}</td>
+            <td style={{ border: "1px solid black", padding: "5px", textAlign: "center" }}>Hoodies sold: {hoodieCount}</td>
+            <td style={{ border: "1px solid black", padding: "5px", textAlign: "center" }}>Tumblers sold: {tumblerCount}</td>
+            <td style={{ border: "1px solid black", padding: "5px", textAlign: "center" }}>T-Shirts sold: {tshirtCount}</td>
+          </tr>
+        </tbody>
+      </table>
 
       <hr></hr>
 
