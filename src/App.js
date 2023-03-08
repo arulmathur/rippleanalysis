@@ -14,7 +14,17 @@ function App() {
   const [tumblerCount, setTumblerCount] = useState(0);
   const [tshirtCount, setTshirtCount] = useState(0);
 
+  const resetCounts = () => {
+    setBottleCount(0);
+    setStickerCount(0);
+    setCrewneckCount(0);
+    setHoodieCount(0);
+    setTumblerCount(0);
+    setTshirtCount(0);
+  }
+
   const handleFile = (event) => {
+    resetCounts();
     Papa.parse(event.target.files[0], {
       header: true,
       skipEmptyLines: false,
@@ -75,26 +85,33 @@ function App() {
 
       <hr></hr>
 
-      <table style={{ borderCollapse: "collapse", border: "1px solid black", margin: "5px auto" }}>
-        <thead>
-          <tr>
-            {columnArray.map((col, i) => (
-              <th key={i}>{col}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {values.map((v, i) => (
-            <tr key={i}>
-              {v.map((value, i) => (
-                <td key={i}>{value}</td>
+      <div style={{ height: "50em", overflow: "auto" }}>
+        <table
+          style={{
+            borderCollapse: "collapse",
+            border: "1px solid black",
+            margin: "5px auto",
+          }}
+        >
+          <thead>
+            <tr>
+              {columnArray.map((col, i) => (
+                <th key={i}>{col}</th>
               ))}
             </tr>
-          ))}
-        </tbody>
-
-      </table>
-
+          </thead>
+          <tbody>
+            {values.map((v, i) => (
+              <tr key={i}>
+                {v.map((value, i) => (
+                  <td key={i}>{value}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <hr></hr>
 
 
     </div>
