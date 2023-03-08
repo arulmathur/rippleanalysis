@@ -13,17 +13,12 @@ function App() {
       header: true,
       skipEmptyLines: true,
       complete: function (result) {
-        const columnArray = [];
-        const valuesArray = [];
-
-        result.data.map((d) => {
-          columnArray.push(Object.keys(d));
-          valuesArray.push(Object.values(d));
-        });
+        const columnArray = ["Email", "Subtotal", "Lineitem name", "Lineitem sku"];
+        const valuesArray = result.data.map((d) => [d.Email, d.Subtotal, d["Lineitem name"], d["Lineitem sku"]
+        ]);
         setData(result.data);
-        setColumn(columnArray[0]);
+        setColumn(columnArray);
         setValues(valuesArray);
-
       }
     })
   }
