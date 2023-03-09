@@ -12,6 +12,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Bar } from 'react-chartjs-2';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
   const [hoodieMoney, setHoodieMoney] = useState(0);
   const [tumblerMoney, setTumblerMoney] = useState(0);
   const [tshirtMoney, setTshirtMoney] = useState(0);
+
 
   const resetCounts = () => {
     setBottleCount(0);
@@ -127,32 +129,53 @@ function App() {
       <hr style={{ marginBottom: -1 }}></hr>
 
       <div style={{ display: "flex" }}>
-        <div style={{ width: "50%", height: "45em", overflow: "auto", padding: "10px", boxShadow: "inset 0px 0px 10px rgba(0, 0, 0, 0.5)" }}>
-          <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-              <TableHead>
-                <TableRow>
-                  {columnArray.map((col, i) => (
-                    <TableCell key={i}>{col}</TableCell>
-                  ))}
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {values.map((v, i) => (
-                  <TableRow key={i}>
-                    {v.map((value, i) => (
-                      <TableCell key={i}>{value}</TableCell>
+
+        <div style={{ width: "50%", boxShadow: "inset 0px 0px 10px rgba(0, 0, 0, 0.5)" }}>
+          <div style={{ height: "45em", overflow: "auto", padding: "10px" }}>
+            <TableContainer component={Paper}>
+              <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+                <TableHead>
+                  <TableRow>
+                    {columnArray.map((col, i) => (
+                      <TableCell key={i}>{col}</TableCell>
                     ))}
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
+                </TableHead>
+                <TableBody>
+                  {values.map((v, i) => (
+                    <TableRow key={i}>
+                      {v.map((value, i) => (
+                        <TableCell key={i}>{value}</TableCell>
+                      ))}
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </div>
         </div>
-        <div style={{ width: "50%", backgroundColor: "red" }}>
-          Future graphs, etc
+
+        <div style={{ width: "50%" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", width: "100%", height: "100%" }}>
+            <div style={{ flexBasis: "50%", height: "50%", boxSizing: "border-box", border: "1px solid black" }}>
+              Analysis 1
+            </div>
+            <div style={{ flexBasis: "50%", height: "50%", boxSizing: "border-box", border: "1px solid black" }}>
+              Analysis 2
+            </div>
+            <div style={{ flexBasis: "50%", height: "50%", boxSizing: "border-box", border: "1px solid black" }}>
+              Analysis 3
+            </div>
+            <div style={{ flexBasis: "50%", height: "50%", boxSizing: "border-box", border: "1px solid black" }}>
+              Analysis 4
+            </div>
+          </div>
         </div>
       </div>
+
+
+
+
 
     </div >
   );
