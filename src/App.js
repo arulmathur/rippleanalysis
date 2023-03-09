@@ -1,6 +1,17 @@
 import './App.css';
 import React, { useState } from 'react'
 import Papa from 'papaparse'
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 function App() {
 
@@ -87,32 +98,33 @@ function App() {
       <input type="file" name="file" accept='.csv' onChange={handleFile} style={{ display: "block", margin: "10px auto" }}>
       </input>
 
-      <br />
-
-      <table style={{ borderCollapse: "collapse", border: "1px solid black", margin: "5px auto" }}>
-        <tbody>
-          <tr>
-            <td style={{ border: "1px solid black", padding: "5px", textAlign: "center" }}>Bottles sold: {bottleCount}</td>
-            <td style={{ border: "1px solid black", padding: "5px", textAlign: "center" }}>Stickers sold: {stickerCount}</td>
-            <td style={{ border: "1px solid black", padding: "5px", textAlign: "center" }}>Crewnecks sold: {crewneckCount}</td>
-            <td style={{ border: "1px solid black", padding: "5px", textAlign: "center" }}>Hoodies sold: {hoodieCount}</td>
-            <td style={{ border: "1px solid black", padding: "5px", textAlign: "center" }}>Tumblers sold: {tumblerCount}</td>
-            <td style={{ border: "1px solid black", padding: "5px", textAlign: "center" }}>T-Shirts sold: {tshirtCount}</td>
-          </tr>
-          <tr>
-            <td style={{ border: "1px solid black", padding: "5px", textAlign: "center" }}>${bottleMoney.toFixed(2)}</td>
-            <td style={{ border: "1px solid black", padding: "5px", textAlign: "center" }}>${stickerMoney.toFixed(2)}</td>
-            <td style={{ border: "1px solid black", padding: "5px", textAlign: "center" }}>${crewneckMoney.toFixed(2)}</td>
-            <td style={{ border: "1px solid black", padding: "5px", textAlign: "center" }}>${hoodieMoney.toFixed(2)}</td>
-            <td style={{ border: "1px solid black", padding: "5px", textAlign: "center" }}>${tumblerMoney.toFixed(2)}</td>
-            <td style={{ border: "1px solid black", padding: "5px", textAlign: "center" }}>${tshirtMoney.toFixed(2)}</td>
-          </tr>
-        </tbody>
-      </table>
-
       <hr></hr>
+      <div style={{ padding: 10 }}>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+            <TableHead>
+              <TableRow sx={{ backgroundColor: "lightblue" }}>
+                <TableCell>Bottles sold: {bottleCount}</TableCell>
+                <TableCell align="right">Stickers sold: {stickerCount}</TableCell>
+                <TableCell align="right">Crewnecks sold: {crewneckCount}</TableCell>
+                <TableCell align="right">Hoodies sold: {hoodieCount}</TableCell>
+                <TableCell align="right">Tumblers sold: {tumblerCount}</TableCell>
+                <TableCell align="right">T-Shirts sold: {tshirtCount}</TableCell>
+              </TableRow>
+              <TableRow sx={{ backgroundColor: "white" }}>
+                <TableCell>${bottleMoney.toFixed(2)}</TableCell>
+                <TableCell align="right">${stickerMoney.toFixed(2)}</TableCell>
+                <TableCell align="right">${crewneckMoney.toFixed(2)}</TableCell>
+                <TableCell align="right">${hoodieMoney.toFixed(2)}</TableCell>
+                <TableCell align="right">${tumblerMoney.toFixed(2)}</TableCell>
+                <TableCell align="right">${tshirtMoney.toFixed(2)}</TableCell>
+              </TableRow>
+            </TableHead>
+          </Table>
+        </TableContainer>
+      </div>
 
-      <div style={{ height: "50em", overflow: "auto" }}>
+      <div style={{ height: "50em", overflow: "auto", margin: -2 }}>
         <table
           style={{
             borderCollapse: "collapse",
@@ -138,9 +150,6 @@ function App() {
           </tbody>
         </table>
       </div>
-      <hr></hr>
-
-
     </div>
   );
 }
