@@ -134,7 +134,7 @@ function App() {
           <div style={{ height: "45em", overflow: "auto", padding: "10px" }}>
             <TableContainer component={Paper}>
               <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-                <TableHead>
+                <TableHead sx={{ backgroundColor: "red" }}>
                   <TableRow>
                     {columnArray.map((col, i) => (
                       <TableCell key={i}>{col}</TableCell>
@@ -157,17 +157,17 @@ function App() {
 
         <div style={{ width: "50%" }}>
           <div style={{ display: "flex", flexWrap: "wrap", width: "100%", height: "100%" }}>
-            <div style={{ flexBasis: "50%", height: "50%", boxSizing: "border-box", border: "1px solid black" }}>
-              Analysis 1
+            <div style={{ flexBasis: "50%", height: "50%", boxSizing: "border-box", border: "1px solid black", borderRadius: "1em", backgroundColor: "lightgreen" }}>
+              Analysis 1 Placeholder
             </div>
-            <div style={{ flexBasis: "50%", height: "50%", boxSizing: "border-box", border: "1px solid black" }}>
-              Analysis 2
+            <div style={{ flexBasis: "50%", height: "50%", boxSizing: "border-box", border: "1px solid black", borderRadius: "1em", backgroundColor: "orange" }}>
+              Analysis 2 Placeholder
             </div>
-            <div style={{ flexBasis: "50%", height: "50%", boxSizing: "border-box", border: "1px solid black" }}>
-              Analysis 3
+            <div style={{ flexBasis: "50%", height: "50%", boxSizing: "border-box", border: "1px solid black", borderRadius: "1em", backgroundColor: "teal" }}>
+              Analysis 3 Placeholder
             </div>
-            <div style={{ flexBasis: "50%", height: "50%", boxSizing: "border-box", border: "1px solid black" }}>
-              Analysis 4
+            <div style={{ flexBasis: "50%", height: "50%", boxSizing: "border-box", border: "1px solid black", borderRadius: "1em", backgroundColor: "tan" }}>
+              Analysis 4 Placeholder
             </div>
           </div>
         </div>
