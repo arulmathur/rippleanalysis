@@ -1,4 +1,3 @@
-import './App.css';
 import React, { useState } from 'react'
 import Papa from 'papaparse'
 import '@fontsource/roboto/300.css';
@@ -99,9 +98,9 @@ function App() {
     <div style={{ textAlign: "center" }}>
 
       <div style={{ display: "flex" }}>
-        <p style={{ width: "5%", textAlign: "left", margin: "15px 10px", fontSize: "30px" }}>ripple | </p>
+        <p style={{ width: "5%", textAlign: "left", margin: ".5em .5em", fontSize: "1.9em" }}>ripple&nbsp;| </p>
         <div style={{
-          width: "20%", textAlign: "left", margin: "15px -10px", fontSize: "20px", display: "flex", alignItems: "center"
+          width: "20%", textAlign: "left", margin: "1em", fontSize: "1em", display: "flex", alignItems: "center"
         }}>sales analysis tool</div>
         <label htmlFor="file-upload" style={{ display: "inline-flex", justifyContent: "center", alignItems: "center", backgroundColor: "#337ab7", color: "#fff", cursor: "pointer", padding: "6px 12px", border: "none", borderRadius: "4px", fontSize: "14px", fontWeight: 400, boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.5)", margin: "10px" }}
           onMouseEnter={(e) => { e.target.style.backgroundColor = "#23527c" }}
