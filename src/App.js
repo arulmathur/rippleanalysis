@@ -124,33 +124,37 @@ function App() {
         </TableContainer>
       </div>
 
-      <div style={{ height: "50em", overflow: "auto", margin: -2 }}>
-        <table
-          style={{
-            borderCollapse: "collapse",
-            border: "1px solid black",
-            margin: "5px auto",
-          }}
-        >
-          <thead>
-            <tr>
-              {columnArray.map((col, i) => (
-                <th key={i}>{col}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {values.map((v, i) => (
-              <tr key={i}>
-                {v.map((value, i) => (
-                  <td key={i}>{value}</td>
+      <hr style={{ marginBottom: -1 }}></hr>
+
+      <div style={{ display: "flex" }}>
+        <div style={{ width: "50%", height: "45em", overflow: "auto", padding: "10px", boxShadow: "inset 0px 0px 10px rgba(0, 0, 0, 0.5)" }}>
+          <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+              <TableHead>
+                <TableRow>
+                  {columnArray.map((col, i) => (
+                    <TableCell key={i}>{col}</TableCell>
+                  ))}
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {values.map((v, i) => (
+                  <TableRow key={i}>
+                    {v.map((value, i) => (
+                      <TableCell key={i}>{value}</TableCell>
+                    ))}
+                  </TableRow>
                 ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
+        <div style={{ width: "50%", backgroundColor: "red" }}>
+          Future graphs, etc
+        </div>
       </div>
-    </div>
+
+    </div >
   );
 }
 
