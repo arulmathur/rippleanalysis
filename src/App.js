@@ -97,8 +97,23 @@ function App() {
 
   return (
     <div style={{ textAlign: "center" }}>
-      <input type="file" name="file" accept='.csv' onChange={handleFile} style={{ display: "block", margin: "10px auto" }}>
-      </input>
+
+      <div style={{ display: "flex" }}>
+        <p style={{ width: "5%", textAlign: "left", margin: "15px 10px", fontSize: "30px" }}>ripple | </p>
+        <div style={{
+          width: "20%", textAlign: "left", margin: "15px -10px", fontSize: "20px", display: "flex", alignItems: "center"
+        }}>sales analysis tool</div>
+        <label htmlFor="file-upload" style={{ display: "inline-flex", justifyContent: "center", alignItems: "center", backgroundColor: "#337ab7", color: "#fff", cursor: "pointer", padding: "6px 12px", border: "none", borderRadius: "4px", fontSize: "14px", fontWeight: 400, boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.5)", margin: "10px" }}
+          onMouseEnter={(e) => { e.target.style.backgroundColor = "#23527c" }}
+          onMouseLeave={(e) => { e.target.style.backgroundColor = "#337ab7" }}
+          onMouseDown={(e) => { e.target.style.backgroundColor = "#1b4d7e"; e.target.style.boxShadow = "inset 0px 1px 3px rgba(0, 0, 0, 0.5)" }}
+          onMouseUp={(e) => { e.target.style.backgroundColor = "#337ab7"; e.target.style.boxShadow = "none" }}>
+          Click to Select CSV file
+          <input id="file-upload" type="file" accept=".csv" onChange={handleFile} style={{ display: "none" }} />
+        </label>
+
+
+      </div>
 
       <hr></hr>
       <div style={{ padding: 10 }}>
@@ -155,7 +170,7 @@ function App() {
           </div>
         </div>
 
-        <div style={{ width: "50%" }}>
+        <div style={{ width: "50%", backgroundColor: "black", padding: "1px", borderRadius: "1em" }}>
           <div style={{ display: "flex", flexWrap: "wrap", width: "100%", height: "100%" }}>
             <div style={{ flexBasis: "50%", height: "50%", boxSizing: "border-box", border: "1px solid black", borderRadius: "1em", backgroundColor: "lightgreen" }}>
               Analysis 1 Placeholder
