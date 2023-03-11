@@ -11,13 +11,13 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Bar } from 'react-chartjs-2';
 
 function App() {
 
   const [data, setData] = useState([]);
   const [columnArray, setColumn] = useState([]);
   const [values, setValues] = useState([]);
+
   const [bottleCount, setBottleCount] = useState(0);
   const [stickerCount, setStickerCount] = useState(0);
   const [crewneckCount, setCrewneckCount] = useState(0);
@@ -31,6 +31,20 @@ function App() {
   const [hoodieMoney, setHoodieMoney] = useState(0);
   const [tumblerMoney, setTumblerMoney] = useState(0);
   const [tshirtMoney, setTshirtMoney] = useState(0);
+
+  const [grayCount, setGrayCount] = useState(0);
+  const [greenCount, setGreenCount] = useState(0);
+  const [blueCount, setBlueCount] = useState(0);
+  const [orangeCount, setOrangeCount] = useState(0);
+  const [seafoamCount, setSeafoamCount] = useState(0);
+  const [grapeCount, setGrapeCount] = useState(0);
+  const [lavenderCount, setLavenderCount] = useState(0);
+  const [oliveCount, setOliveCount] = useState(0);
+  const [caramelCount, setCaramelCount] = useState(0);
+  const [pinkCount, setPinkCount] = useState(0);
+  const [whiteCount, setWhiteCount] = useState(0);
+  const [coralCount, setCoralCount] = useState(0);
+  const [lemonCount, setLemonCount] = useState(0);
 
 
   const resetCounts = () => {
@@ -61,9 +75,53 @@ function App() {
             if (col.includes("Lineitem name") && d[col].includes("Bottle")) {
               setBottleCount((prevCount) => prevCount + 1);
               setBottleMoney((prevMoney) => prevMoney + Number(d["Lineitem price"]));
+              if (d[col].includes("Gray")) {
+                setGrayCount((prevCount) => prevCount + 1)
+              }
+              if (d[col].includes("Green")) {
+                setGreenCount((prevCount) => prevCount + 1)
+              }
+              if (d[col].includes("Blue")) {
+                setBlueCount((prevCount) => prevCount + 1)
+              }
+              if (d[col].includes("Orange")) {
+                setOrangeCount((prevCount) => prevCount + 1)
+              }
+              if (d[col].includes("Seafoam")) {
+                setSeafoamCount((prevCount) => prevCount + 1)
+              }
+              if (d[col].includes("Grape")) {
+                setGrapeCount((prevCount) => prevCount + 1)
+              }
+              if (d[col].includes("Lavender")) {
+                setLavenderCount((prevCount) => prevCount + 1)
+              }
+              if (d[col].includes("Olive")) {
+                setOliveCount((prevCount) => prevCount + 1)
+              }
+              if (d[col].includes("Caramel")) {
+                setCaramelCount((prevCount) => prevCount + 1)
+              }
+              if (d[col].includes("Pink")) {
+                setPinkCount((prevCount) => prevCount + 1)
+              }
+              if (d[col].includes("White")) {
+                setWhiteCount((prevCount) => prevCount + 1)
+              }
+              if (d[col].includes("Coral")) {
+                setCoralCount((prevCount) => prevCount + 1)
+              }
+              if (d[col].includes("Lemon")) {
+                setLemonCount((prevCount) => prevCount + 1)
+              }
             }
             if (col.includes("Lineitem name") && d[col].includes("Sticker")) {
-              setStickerCount((prevCount) => prevCount + 1);
+              if (d[col].includes("Bundle")) {
+                setStickerCount((prevCount) => prevCount + 3);
+              }
+              else {
+                setStickerCount((prevCount) => prevCount + 1);
+              }
               setStickerMoney((prevMoney) => prevMoney + Number(d["Lineitem price"]));
             }
             if (col.includes("Lineitem name") && d[col].includes("Crewneck")) {
@@ -169,19 +227,78 @@ function App() {
           </div>
         </div>
 
-        <div style={{ width: "50%", backgroundColor: "black", padding: "1px", borderRadius: "1em" }}>
+        <div style={{ width: "50%", padding: "1px" }}>
           <div style={{ display: "flex", flexWrap: "wrap", width: "100%", height: "100%" }}>
-            <div style={{ flexBasis: "50%", height: "50%", boxSizing: "border-box", border: "1px solid black", borderRadius: "1em", backgroundColor: "lightgreen" }}>
-              Analysis 1 Placeholder
+            <div style={{ flexBasis: "100%", height: "50%", boxSizing: "border-box", border: "1px solid black", borderRadius: "1em" }}>
+              <h2 style={{ padding: 10 }}>Charity Allocations</h2>
+              <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 650, height: 250 }} size="small">
+                  <TableHead>
+                    <TableRow sx={{ backgroundColor: "lightgreen" }}>
+                      <TableCell>Bottles ($6/unit)</TableCell>
+                      <TableCell align="center">Stickers ($1/unit)</TableCell>
+                      <TableCell align="right">Crewnecks ($5/unit)</TableCell>
+                    </TableRow>
+                    <TableRow sx={{ backgroundColor: "white" }}>
+                      <TableCell>${bottleCount * 6}</TableCell>
+                      <TableCell align="center">${stickerCount * 1}</TableCell>
+                      <TableCell align="right">${crewneckCount * 5}</TableCell>
+                    </TableRow>
+                    <TableRow sx={{ backgroundColor: "lightgreen" }}>
+                      <TableCell align="left">Hoodies ($5/unit)</TableCell>
+                      <TableCell align="center">Tumblers ($3/unit)</TableCell>
+                      <TableCell align="right">T-Shirts ($5/unit)</TableCell>
+                    </TableRow>
+                    <TableRow sx={{ backgroundColor: "white" }}>
+                      <TableCell align="left">${hoodieCount * 5}</TableCell>
+                      <TableCell align="center">${tumblerCount * 3}</TableCell>
+                      <TableCell align="right">${tshirtCount * 5}</TableCell>
+                    </TableRow>
+                  </TableHead>
+                </Table>
+              </TableContainer>
+
             </div>
-            <div style={{ flexBasis: "50%", height: "50%", boxSizing: "border-box", border: "1px solid black", borderRadius: "1em", backgroundColor: "orange" }}>
-              Analysis 2 Placeholder
-            </div>
-            <div style={{ flexBasis: "50%", height: "50%", boxSizing: "border-box", border: "1px solid black", borderRadius: "1em", backgroundColor: "teal" }}>
-              Analysis 3 Placeholder
-            </div>
-            <div style={{ flexBasis: "50%", height: "50%", boxSizing: "border-box", border: "1px solid black", borderRadius: "1em", backgroundColor: "tan" }}>
-              Analysis 4 Placeholder
+            <div style={{ flexBasis: "100%", height: "50%", boxSizing: "border-box", border: "1px solid black", borderRadius: "1em" }}>
+              <h2 style={{ padding: 10 }}>Bottle Colors Sold</h2>
+              <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 650, height: 75 }} size="small">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell sx={{ backgroundColor: "gray", borderRadius: 2 }}>Deep Gray: </TableCell>
+                      <TableCell sx={{ backgroundColor: "green", borderRadius: 2 }} align="left">Forest Green: </TableCell>
+                      <TableCell sx={{ backgroundColor: "skyblue", borderRadius: 2 }} align="left">Sky Blue: </TableCell>
+                      <TableCell sx={{ backgroundColor: "orange", borderRadius: 2 }}>Orange: </TableCell>
+                    </TableRow>
+                  </TableHead>
+                </Table>
+              </TableContainer>
+              <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 650, height: 75 }} size="small">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell sx={{ backgroundColor: "aquamarine", borderRadius: 2 }} align="left">Seafoam: </TableCell>
+                      <TableCell sx={{ backgroundColor: "purple", borderRadius: 2 }} align="left">Grape: </TableCell>
+                      <TableCell sx={{ backgroundColor: "lavender", borderRadius: 2 }}>Lavender: </TableCell>
+                      <TableCell sx={{ backgroundColor: "olive", borderRadius: 2 }} align="left">Olive: </TableCell>
+                      <TableCell sx={{ backgroundColor: "tan", borderRadius: 2 }} align="left">Caramel: </TableCell>
+                    </TableRow>
+                  </TableHead>
+                </Table>
+              </TableContainer>
+              <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 650, height: 75 }} size="small">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell sx={{ backgroundColor: "pink", borderRadius: 2 }}>Pink: </TableCell>
+                      <TableCell sx={{ backgroundColor: "white", borderRadius: 2 }} align="left">White: </TableCell>
+                      <TableCell sx={{ backgroundColor: "coral", borderRadius: 2 }} align="left">Coral: </TableCell>
+                      <TableCell sx={{ backgroundColor: "yellow", borderRadius: 2 }} align="left">Lemon: </TableCell>
+                    </TableRow>
+                  </TableHead>
+                </Table>
+              </TableContainer>
+
             </div>
           </div>
         </div>
