@@ -11,6 +11,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { pink } from '@mui/material/colors';
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
   const [whiteCount, setWhiteCount] = useState(0);
   const [coralCount, setCoralCount] = useState(0);
   const [lemonCount, setLemonCount] = useState(0);
+  const [mustardCount, setMustardCount] = useState(0);
 
 
   const resetCounts = () => {
@@ -113,6 +115,9 @@ function App() {
               }
               if (d[col].includes("Lemon")) {
                 setLemonCount((prevCount) => prevCount + 1)
+              }
+              if (d[col].includes("Mustard")) {
+                setMustardCount((prevCount) => prevCount + 1)
               }
             }
             if (col.includes("Lineitem name") && d[col].includes("Sticker")) {
@@ -265,10 +270,10 @@ function App() {
                 <Table sx={{ minWidth: 650, height: 75 }} size="small">
                   <TableHead>
                     <TableRow>
-                      <TableCell sx={{ backgroundColor: "gray", borderRadius: 2 }}>Deep Gray: </TableCell>
-                      <TableCell sx={{ backgroundColor: "green", borderRadius: 2 }} align="left">Forest Green: </TableCell>
-                      <TableCell sx={{ backgroundColor: "skyblue", borderRadius: 2 }} align="left">Sky Blue: </TableCell>
-                      <TableCell sx={{ backgroundColor: "orange", borderRadius: 2 }}>Orange: </TableCell>
+                      <TableCell sx={{ backgroundColor: "gray", borderRadius: 2 }}>Deep Gray: {grayCount} </TableCell>
+                      <TableCell sx={{ backgroundColor: "green", borderRadius: 2 }} align="left">Forest Green: {greenCount}</TableCell>
+                      <TableCell sx={{ backgroundColor: "skyblue", borderRadius: 2 }} align="left">Light/Sky Blue: {blueCount}</TableCell>
+                      <TableCell sx={{ backgroundColor: "orange", borderRadius: 2 }}>Orange: {orangeCount}</TableCell>
                     </TableRow>
                   </TableHead>
                 </Table>
@@ -277,11 +282,11 @@ function App() {
                 <Table sx={{ minWidth: 650, height: 75 }} size="small">
                   <TableHead>
                     <TableRow>
-                      <TableCell sx={{ backgroundColor: "aquamarine", borderRadius: 2 }} align="left">Seafoam: </TableCell>
-                      <TableCell sx={{ backgroundColor: "purple", borderRadius: 2 }} align="left">Grape: </TableCell>
-                      <TableCell sx={{ backgroundColor: "lavender", borderRadius: 2 }}>Lavender: </TableCell>
-                      <TableCell sx={{ backgroundColor: "olive", borderRadius: 2 }} align="left">Olive: </TableCell>
-                      <TableCell sx={{ backgroundColor: "tan", borderRadius: 2 }} align="left">Caramel: </TableCell>
+                      <TableCell sx={{ backgroundColor: "aquamarine", borderRadius: 2 }} align="left">Seafoam: {seafoamCount}</TableCell>
+                      <TableCell sx={{ backgroundColor: "purple", borderRadius: 2 }} align="left">Grape: {grapeCount} </TableCell>
+                      <TableCell sx={{ backgroundColor: "lavender", borderRadius: 2 }}>Lavender: {lavenderCount}</TableCell>
+                      <TableCell sx={{ backgroundColor: "olive", borderRadius: 2 }} align="left">Olive: {oliveCount}</TableCell>
+                      <TableCell sx={{ backgroundColor: "tan", borderRadius: 2 }} align="left">Caramel: {caramelCount}</TableCell>
                     </TableRow>
                   </TableHead>
                 </Table>
@@ -290,10 +295,20 @@ function App() {
                 <Table sx={{ minWidth: 650, height: 75 }} size="small">
                   <TableHead>
                     <TableRow>
-                      <TableCell sx={{ backgroundColor: "pink", borderRadius: 2 }}>Pink: </TableCell>
-                      <TableCell sx={{ backgroundColor: "white", borderRadius: 2 }} align="left">White: </TableCell>
-                      <TableCell sx={{ backgroundColor: "coral", borderRadius: 2 }} align="left">Coral: </TableCell>
-                      <TableCell sx={{ backgroundColor: "yellow", borderRadius: 2 }} align="left">Lemon: </TableCell>
+                      <TableCell sx={{ backgroundColor: "pink", borderRadius: 2 }}>Pink: {pinkCount}</TableCell>
+                      <TableCell sx={{ backgroundColor: "white", borderRadius: 2 }} align="left">White: {whiteCount}</TableCell>
+                      <TableCell sx={{ backgroundColor: "coral", borderRadius: 2 }} align="left">Coral: {coralCount}</TableCell>
+                      <TableCell sx={{ backgroundColor: "yellow", borderRadius: 2 }} align="left">Lemon: {lemonCount}</TableCell>
+                      <TableCell sx={{ backgroundColor: "gold", borderRadius: 2 }} align="left">Mustard: {mustardCount}</TableCell>
+                    </TableRow>
+                  </TableHead>
+                </Table>
+              </TableContainer>
+              <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 650, height: 40 }} size="small">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell sx={{ backgroundColor: "black", borderRadius: 2, color: "white" }} align="center">Others: {bottleCount - grayCount - greenCount - blueCount - orangeCount - seafoamCount - grapeCount - lavenderCount - oliveCount - caramelCount - pinkCount - whiteCount - coralCount - lemonCount - mustardCount}</TableCell>
                     </TableRow>
                   </TableHead>
                 </Table>
